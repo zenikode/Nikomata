@@ -11,13 +11,10 @@ Add this to your Unity project's Packages/manifest.json:
 "com.zeni.nikomata": "https://github.com/zenikode/Nikomata.git?path=Assets",
 ```
 
-Manual Import:
-Clone the repository and place the EZTween folder in your Assets directory.
-
 ---  
 ## 🚀 Core Concepts  
 ### 1. Automata\<TSubject>  
-The main FSM controller. Manages states and transitions for a subject (TSubject).  
+The main FSM controller. Manages states and transitions.  
 
 #### Key Methods:  
 |               Method               | Description |  
@@ -44,8 +41,8 @@ public class IdleState : AState<Player>
 ```
 
 #### Transition Methods (callable inside states):  
-- ChangeState<TNewState>()  
-- ChangeState(AState<TSubject>)  
+- ChangeState\<TNewState\>()  
+- ChangeState(AState\<TSubject\>)  
 
 ---  
 ### 3. Signals & Requests  
