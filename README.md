@@ -1,4 +1,4 @@
-# Nikomata — Minimalist Finite State Machine (FSM) Library for C#  
+# Nikomata — Minimalist Finite State Machine (FSM) Library for Unity
 
 A lightweight, type-safe state machine implementation with signal/request handling. Inspired by automata theory and designed for clarity.  
 
