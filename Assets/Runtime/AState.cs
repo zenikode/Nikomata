@@ -1,5 +1,8 @@
+using System;
+
 namespace Nikomata.Runtime
 {
+    [Serializable]
     public abstract class AState<TSubject>
     {
         private Automata<TSubject> _automata;

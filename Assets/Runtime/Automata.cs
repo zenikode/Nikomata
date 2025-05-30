@@ -1,11 +1,18 @@
 using System;
+using UnityEngine;
 
 namespace Nikomata.Runtime
 {
-    public sealed class Automata<TSubject>
+    public abstract class Automata
+    {
+        public abstract string GetCurrentStateName();
+    }
+    
+    [Serializable]
+    public sealed class Automata<TSubject>: Automata
     {
         private TSubject _subject;
-        private AState<TSubject> _state;
+        [SerializeReference] private AState<TSubject> _state;
 
         public void Init(TSubject subject, AState<TSubject> initState)
         {
@@ -63,6 +70,13 @@ namespace Nikomata.Runtime
             }
             result = default;
             return false;
+        }
+
+        public override string GetCurrentStateName()
+        {
+            if (_state != default)
+                return _state.GetType().Name;
+            return "Not initialized";
         }
     }
 }
