@@ -4,7 +4,15 @@ A lightweight, type-safe state machine implementation with signal/request handli
 
 ---  
 ## 📦 Installation  
-Add the Nikomata.Runtime namespace to your C# project.  
+
+Via Git URL:
+Add this to your Unity project's Packages/manifest.json:
+```json
+"com.zeni.nikomata": "https://github.com/zenikode/Nikomata.git?path=Assets",
+```
+
+Manual Import:
+Clone the repository and place the EZTween folder in your Assets directory.
 
 ---  
 ## 🚀 Core Concepts  
