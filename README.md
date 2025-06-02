@@ -11,22 +11,20 @@ Add this to your Unity project's Packages/manifest.json:
 "com.zeni.nikomata": "https://github.com/zenikode/Nikomata.git?path=Assets",
 ```
 
-Manual Import:
-Clone the repository and place the EZTween folder in your Assets directory.
-
 ---  
 ## 🚀 Core Concepts  
 ### 1. Automata\<TSubject>  
-The main FSM controller. Manages states and transitions for a subject (TSubject).  
+The main FSM controller. Manages states and transitions.  
 
 #### Key Methods:  
-| Method | Description |  
-|--------|-------------|  
-| Init(TSubject, AState<TSubject>) | Initializes the FSM with a subject and starting state. |  
-| ChangeState<TNewState>() | Transitions to a new state (instantiates TNewState). |  
-| ChangeState(AState<TSubject>) | Transitions using a pre-allocated state object. |  
-| Signal<TPayload>(TPayload) | Sends a signal payload to the current state (if it implements ISignalListener<TPayload>). |  
-| Request<TPayload, TResult>(TPayload, out TResult) | Sends a request to the current state (if it implements IRequestListener<TPayload, TResult>). Returns false if unhandled. |  
+|               Method               | Description |  
+|------------------------------------|-------------|  
+| void&nbsp;Init(TSubject,&nbsp;AState\<TSubject\>) | Initializes the FSM with a subject and starting state. |  
+| void ChangeState\<TNewState\>() | Transitions to a new state (instantiates new state). |  
+| void ChangeState(TNewState) | Transitions using a pre-allocated state object. |  
+| void Signal\<TPayload\>() | Sends new signal payload to the current state (if it implements ISignalListener<TPayload>). |  
+| void Signal(TPayload) | Sends preallocated signal payload to the current state (if it implements ISignalListener<TPayload>). |  
+| bool&nbsp;Request(TPayload,&nbsp;out&nbsp;TResult) | Sends a request to the current state (if it implements IRequestListener<TPayload, TResult>). Returns false if unhandled. |  
 
 ---  
 ### 2. AState\<TSubject>  
@@ -43,8 +41,8 @@ public class IdleState : AState<Player>
 ```
 
 #### Transition Methods (callable inside states):  
-- ChangeState<TNewState>()  
-- ChangeState(AState<TSubject>)  
+- ChangeState\<TNewState\>()  
+- ChangeState(AState\<TSubject\>)  
 
 ---  
 ### 3. Signals & Requests  
