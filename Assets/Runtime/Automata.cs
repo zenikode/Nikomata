@@ -16,7 +16,6 @@ namespace Nikomata.Runtime
 
         public void Init(TSubject subject, AState<TSubject> initState)
         {
-            if (_subject != null) throw new Exception("Automata already initialized");
             _subject = subject;
             EnterState(initState);
         }
